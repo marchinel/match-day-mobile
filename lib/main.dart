@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:matchday_mobile/menu.dart';
+import 'package:matchday_mobile/screens/menu.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,8 +29,24 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
-            .copyWith(secondary: Colors.blueAccent[400]),
+        colorScheme: const ColorScheme(
+          brightness: Brightness.light,
+          primary: Color(0xFF1E8449),      // hijau segar tapi agak gelap
+          onPrimary: Colors.white,         // warna teks/icon di atas hijau
+          secondary: Color(0xFF27AE60),    // hijau tambahan (lebih muda)
+          onSecondary: Colors.white,
+          error: Colors.red,
+          onError: Colors.white,
+          background: Color(0xFFF8FAF8),   // warna latar utama
+          onBackground: Colors.black,
+          surface: Colors.white,
+          onSurface: Colors.black,
+        ),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color(0xFF1E8449), // biar appbar tetap konsisten
+          foregroundColor: Colors.white,
+        ),
+        useMaterial3: true,
       ),
       home: MyHomePage(),
     );
