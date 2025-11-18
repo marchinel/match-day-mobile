@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:matchday_mobile/widgets/left_drawer.dart';
 import 'productslist_form.dart';
-import 'package:matchday_mobile/widgets/news_card.dart';
+import 'package:matchday_mobile/widgets/product_card.dart';
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({super.key});

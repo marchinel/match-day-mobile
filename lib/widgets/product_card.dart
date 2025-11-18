@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:matchday_mobile/screens/productslist_form.dart';
 import 'package:matchday_mobile/screens/menu.dart';
+import 'package:matchday_mobile/screens/product_entry_list.dart';
 
 class ItemCard extends StatelessWidget {
   // Menampilkan kartu dengan ikon dan nama.
@@ -12,34 +13,53 @@ class ItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      // Menentukan warna latar belakang dari tema aplikasi.
       color: Theme.of(context).colorScheme.secondary,
-      // Membuat sudut kartu melengkung.
       borderRadius: BorderRadius.circular(12),
 
       child: InkWell(
-        // Aksi ketika kartu ditekan.
         onTap: () {
-          // Menampilkan pesan SnackBar saat kartu ditekan.
+          // Snackbar feedback
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(
                 SnackBar(content: Text("Kamu telah menekan tombol ${item.name}!"))
             );
 
-          // Navigate ke route yang sesuai (tergantung jenis tombol)
+          // 🔵 ARAH NAVIGASI
           if (item.name == "Create Product") {
-            // TODO: Gunakan Navigator.push untuk melakukan navigasi ke MaterialPageRoute yang mencakup ProductsFormPage.
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const ProductsFormPage()));
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const ProductsFormPage()),
+            );
+          }
+
+          else if (item.name == "All Products") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const ProductEntryListPage()),
+            );
+          }
+
+          else if (item.name == "My Products") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const ProductEntryListPage()),
+            );
+          }
+
+          // (opsional) untuk kompatibilitas tombol lama
+          else if (item.name == "See Products") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const ProductEntryListPage()),
+            );
           }
         },
-        // Container untuk menyimpan Icon dan Text
+
         child: Container(
           padding: const EdgeInsets.all(8),
           child: Center(
             child: Column(
-              // Menyusun ikon dan teks di tengah kartu.
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
@@ -60,5 +80,4 @@ class ItemCard extends StatelessWidget {
       ),
     );
   }
-
 }

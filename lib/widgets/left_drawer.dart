@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:matchday_mobile/screens/menu.dart';
-import '../screens/productslist_form.dart';
+import 'package:matchday_mobile/screens/productslist_form.dart';
+import 'package:matchday_mobile/screens/product_entry_list.dart';
 
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
@@ -60,6 +61,17 @@ class LeftDrawer extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => const ProductsFormPage(),
                   ));
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.add_reaction_rounded),
+            title: const Text('Products List'),
+            onTap: () {
+              // Route to news list page
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ProductEntryListPage()),
+              );
             },
           ),
         ],
