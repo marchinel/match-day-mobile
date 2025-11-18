@@ -74,3 +74,28 @@ Pada contoh tersebut, context memungkinkan widget Text mengetahui ukuran layar d
 Hot reload di Flutter adalah fitur yang memungkinkan developer melihat perubahan kode secara instan tanpa kehilangan state aplikasi yang sedang berjalan. Saat hot reload dijalankan, Flutter hanya memuat ulang kode yang diubah dan memperbarui tampilan UI di layar, sementara data, variabel state, dan posisi navigasi tetap dipertahankan. Fitur ini sangat berguna untuk mempercepat proses pengembangan, misalnya ketika mengubah warna, teks, atau tata letak widget tanpa harus memulai ulang aplikasi dari awal.
 
 Sebaliknya, hot restart akan memuat ulang seluruh aplikasi dari awal. Semua state atau data yang tersimpan sementara akan dihapus, dan aplikasi kembali ke kondisi awal seperti saat baru dijalankan. Perbedaan utamanya adalah hot reload mempertahankan state, sedangkan hot restart mengatur ulang seluruh state. Hot reload cocok digunakan saat melakukan perubahan kecil pada tampilan atau logika UI, sementara hot restart digunakan ketika perubahan yang dilakukan memengaruhi struktur dasar aplikasi atau inisialisasi awal yang tidak bisa diperbarui secara langsung.
+
+== TUGAS 8 ==
+
+1. Jelaskan perbedaan antara Navigator.push() dan Navigator.pushReplacement() pada Flutter. Dalam kasus apa sebaiknya masing-masing digunakan pada aplikasi Football Shop kamu? Jelaskan perbedaan antara Navigator.push() dan Navigator.pushReplacement() pada Flutter. Dalam kasus apa sebaiknya masing-masing digunakan pada aplikasi Football Shop kamu?
+
+Navigator.push() digunakan untuk memindahkan pengguna ke halaman baru dengan tetap menyimpan halaman sebelumnya dalam stack. Artinya, ketika pengguna berada di halaman baru, mereka masih dapat kembali ke halaman sebelumnya dengan menekan tombol back. Sementara itu, Navigator.pushReplacement() menggantikan halaman saat ini dengan halaman baru dan menghapus halaman sebelumnya dari stack, sehingga pengguna tidak bisa kembali lagi ke halaman lama.
+
+Dalam aplikasi Football Shop, Navigator.push() cocok digunakan saat pengguna berpindah dari daftar produk ke detail produk, karena kamu ingin mereka bisa kembali melihat daftar barang. Sedangkan Navigator.pushReplacement() lebih tepat digunakan setelah proses seperti login atau checkout, di mana setelah transaksi selesai atau pengguna sudah masuk, kamu tidak ingin mereka kembali ke halaman login atau halaman keranjang yang lama, sehingga pengalaman navigasinya lebih bersih dan logis.
+
+2. Bagaimana kamu memanfaatkan hierarchy widget seperti Scaffold, AppBar, dan Drawer untuk membangun struktur halaman yang konsisten di seluruh aplikasi?
+
+Untuk menjaga tampilan yang konsisten di setiap halaman, saya menggunakan Scaffold sebagai kerangka dasar. Di dalamnya, saya menempatkan AppBar dengan gaya dan warna yang sama agar tampilan aplikasi tetap seragam. Kemudian, saya menambahkan Drawer sebagai menu navigasi yang muncul di semua halaman, sehingga pengguna dapat berpindah antar halaman dengan mudah. Bagian yang berbeda hanya terdapat pada body, sesuai dengan konten yang ingin ditampilkan. Dengan struktur ini, setiap halaman tetap terasa konsisten, mudah digunakan, dan rapi secara keseluruhan.
+
+3. Dalam konteks desain antarmuka, apa kelebihan menggunakan layout widgetseperti Padding, SingleChildScrollView, dan ListView saat menampilkan elemen-elemen form? Berikan contoh penggunaannya dari aplikasi kamu.
+
+Menggunakan widget seperti Padding, SingleChildScrollView, dan ListView membantu membuat tampilan form lebih rapi, nyaman digunakan, dan tetap responsif di berbagai ukuran layar. Padding memberikan jarak yang cukup antar elemen agar tidak terlihat menumpuk dan lebih mudah dibaca. SingleChildScrollView berguna saat form memiliki banyak elemen, sehingga pengguna tetap bisa menggulir tampilan tanpa ada bagian yang terpotong, terutama pada layar kecil. Sedangkan ListView memudahkan penataan elemen secara vertikal dan otomatis mendukung scrolling, sehingga form dapat ditampilkan dengan lebih dinamis tanpa perlu mengatur tinggi secara manual.
+
+Contohnya pada aplikasi Football Shop, saat menampilkan form tambah produk, saya menggunakan Padding untuk memberi jarak antara field nama produk, harga, dan deskripsi. Lalu, seluruh form dibungkus dengan SingleChildScrollView atau ListView agar halaman tetap bisa digulir ketika keyboard muncul, sehingga pengguna tidak merasa kesulitan mengisi form. Dengan cara ini, tampilan form menjadi lebih rapi, nyaman, dan mudah diakses.
+
+4. Bagaimana kamu menyesuaikan warna tema agar aplikasi Football Shop memiliki identitas visual yang konsisten dengan brand toko?
+
+Supaya tampilan aplikasi Match Day punya identitas yang kuat dan konsisten dengan brand-nya, saya menyesuaikan warna tema aplikasi dengan warna khas toko, yaitu hijau. Warna hijau ini dipilih karena memberikan kesan segar, energik, dan identik dengan dunia olahraga.
+
+Saya memakai warna hijau dengan kode Color(0xFF1E8449) sebagai warna utama (primary color) di ColorScheme, agar semua elemen penting seperti AppBar, DrawerHeader, dan tombol “Save” punya nuansa yang sama. Dengan begitu, warna di seluruh halaman aplikasi jadi selaras, tidak random, dan langsung bisa dikenali sebagai bagian dari brand Match Day. Tujuannya, biar pengguna ngerasa pengalaman yang lebih menyatu dan profesional saat memakai aplikasinya.
+
