@@ -32,7 +32,7 @@ class _ProductEntryListPageState extends State<ProductEntryListPage> {
   @override
   Widget build(BuildContext context) {
     final request = context.watch<CookieRequest>();
-    final currentUserId = request.jsonData['user_id'];
+    final currentUserId = int.tryParse(request.jsonData['user_id'].toString());
 
     return Scaffold(
       appBar: AppBar(
